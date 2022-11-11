@@ -98,6 +98,7 @@ class Group:
 
 
 ## MAIN ##
+Group1 = Group(40)
 def main():
     enter = True
     while enter:
@@ -115,18 +116,18 @@ def main():
         if option == 1:
             Newperson = Person()
         elif option == 2:
-            Group.ListPersons()
+            Group1.ListPersons()
         elif option == 3:
             person= int(input("Enter place number in array"))
-            Group.DisplayfromArray(person)
+            Group1.DisplayfromArray(person)
         elif option == 4:
-            Group.ShowPersons()
+            Group1.ShowPersons()
         elif option == 5:
             person = int(input("Enter place number of person"))
-            Group.EditPerson(person)
+            Group1.EditPerson(person)
         elif option == 6:
             ID = int(input("Enter persons name"))
-            Group.FindPerson(ID)
+            Group1.FindPerson(ID)
         else:
             enter = False
 
