@@ -21,7 +21,7 @@ class Person:
         self.__ID = ID
 
 
-    def EditPersonDetails(self, person):
+    def EditPersonDetails(self):
         choice = 0
         while choice < 4:
             choice = int(input("Enter 1 to change name, 2 to change age, 3 to change address, 4 to exit: "))
@@ -63,42 +63,45 @@ class SpecialPerson(Person):
 class Group:
 
     def __init__(self, GroupSize):
-        self.__GroupArray = []
+        self.__GroupDict = {}
         self.__GroupSize = GroupSize
     
     def GetGroupSize(self):
         return self.__GroupSize
 
     def AddPersons(self):
-        groupsize = self.GetGroupSize(groupsize)
-        for x in range():
-            self.__GroupArray.append(Person)
+        person1 = Person()
+        name = person1.GetName()
+        self.__GroupDict[name] = person1
 
     def ShowPersons(self):
-        groupsize = self.GetGroupSize()
-        for num in range(groupsize):
-            self.__GroupArray[num].Display()
+        for name in self.__GroupDict:
+            self.__GroupDict[name].Display()
         
     def ListPersons(self):
-        groupsize = self.GetGroupSize()
-        for num in range(groupsize):
-            self.__GroupArray[num].DisplayName()
+        for name in self.__GroupDict:
+            self.__GroupDict[name].DisplayName()
         
-    def EditPerson(self, placenum):
-        self.__GroupArray[placenum] = self.__GroupArray[placenum].EditPersonDetails()
+    def EditPerson(self, name):
+        self.__GroupDict[name] = self.__GroupDict[name].EditPersonDetails()
 
 
     def FindPerson(self, name):
-        for x in range (self.GetGroupSize()):
-            if name == self.__GroupArray[x].GetName():
-                print(self.__GroupArray[x])
+        for x in self.__GroupDict:
+            if x == name:
+                self.__GroupDict[name].Display()
                 
-    def DisplayfromArray(self, number):
-        print(self.__GroupArray[number])
+    def DisplayfromDict(self, number):
+        count = 0
+        for x in self.__GroupDict:
+            if count == number:
+                return self.__GroupDict[x].Display()
+            else:
+                count += 1
 
 
 ## MAIN ##
-Group1 = Group(40)
+Group1 = Group(1)
 def main():
     enter = True
     while enter:
@@ -114,19 +117,19 @@ def main():
 
         option = int(input("Enter number here: "))
         if option == 1:
-            Newperson = Person()
+            Group1.AddPersons()
         elif option == 2:
             Group1.ListPersons()
         elif option == 3:
-            person= int(input("Enter place number in array"))
-            Group1.DisplayfromArray(person)
+            num = int(input("Enter place number in array"))
+            print(Group1.DisplayfromDict(num))
         elif option == 4:
             Group1.ShowPersons()
         elif option == 5:
-            person = int(input("Enter place number of person"))
+            person = input("Enter name of person")
             Group1.EditPerson(person)
         elif option == 6:
-            ID = int(input("Enter persons name"))
+            ID = input("Enter persons name")
             Group1.FindPerson(ID)
         else:
             enter = False
