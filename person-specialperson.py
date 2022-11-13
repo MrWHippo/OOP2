@@ -89,7 +89,7 @@ class Group:
     def FindPerson(self, name):
         for x in self.__GroupDict:
             if x == name:
-                self.__GroupDict[name].Display()
+                self.__GroupDict[x].Display()
                 
     def DisplayfromDict(self, number):
         count = 0
@@ -121,15 +121,15 @@ def main():
         elif option == 2:
             Group1.ListPersons()
         elif option == 3:
-            num = int(input("Enter place number in array"))
+            num = int(input("Enter place number in array: "))
             print(Group1.DisplayfromDict(num))
         elif option == 4:
             Group1.ShowPersons()
         elif option == 5:
-            person = input("Enter name of person")
+            person = input("Enter name of person: ")
             Group1.EditPerson(person)
         elif option == 6:
-            ID = input("Enter persons name")
+            ID = input("Enter persons name: ")
             Group1.FindPerson(ID)
         else:
             enter = False
